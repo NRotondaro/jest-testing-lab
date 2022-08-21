@@ -1,9 +1,8 @@
-import { render, screen } from '@testing-library/react';
-
+import { render, screen } from '../../../test-utils/testing-library-utils';
 import Options from '../Options';
 
 test('Displays image for each scoop option from the server', async () => {
-  render(<Options optionTypes='scoops' />);
+  render(<Options optionType='scoops' />);
 
   // find images
   const scoopImages = await screen.findAllByRole('img', { name: /scoop$/i });
@@ -15,7 +14,7 @@ test('Displays image for each scoop option from the server', async () => {
 });
 
 test('Displays image for each toppings option from the server', async () => {
-  render(<Options optionTypes='toppings' />);
+  render(<Options optionType='toppings' />);
 
   // find images, expect 3 based on what msw returns
   const images = await screen.findAllByRole('img', { name: /topping$/i });

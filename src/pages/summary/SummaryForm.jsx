@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import { Form } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
-import { Popover } from 'react-bootstrap';
-import { OverlayTrigger } from 'react-bootstrap';
+import { Form, Button, Popover, OverlayTrigger } from 'react-bootstrap';
 
 export default function SummaryForm() {
   const [tcChecked, setTcChecked] = useState(false);

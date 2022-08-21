@@ -3,8 +3,8 @@ import Options from './Options';
 export default function OrderEntry() {
   return (
     <div>
-      <Options optionTypes='scoops' />
-      <Options optionTypes='toppings' />
+      <Options optionType='scoops' />
+      <Options optionType='toppings' />
     </div>
   );
 }

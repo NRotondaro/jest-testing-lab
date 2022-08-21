@@ -9,7 +9,7 @@ function App() {
         {/* Summary page and entry page need provider */}
         <OrderEntry />
       </OrderDetailspRovider>
-      {/* COnfirmation page does not need provider */}
+      {/* Confirmation page does not need provider */}
     </Container>
   );
 }
