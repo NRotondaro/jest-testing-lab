@@ -7,7 +7,6 @@ import OrderEntry from '../OrderEntry';
 import { rest } from 'msw';
 import { server } from '../../../mocks/server';
 import userEvent from '@testing-library/user-event';
-import { toBeEnabled } from '@testing-library/jest-dom/dist/matchers';
 
 test('Handles error for scoops and toppings routes', async () => {
   server.resetHandlers(
