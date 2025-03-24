@@ -1,35 +1,33 @@
 import { useState } from 'react';
-import './App.css';
+import { Container } from 'react-bootstrap';
 
-export function replaceCameWithSpaces(colorName) {
-  return colorName.replace(/\B([A-Z])\B/g, ' $1');
-}
+import OrderConfirmation from './pages/confirmation/OrderConfirmation';
+import OrderEntry from './pages/entry/OrderEntry';
+import OrderSummary from './pages/summary/OrderSummary';
+
+import { OrderDetailsProvider } from './contexts/OrderDetails';
 
 function App() {
-  const [buttonColor, setButtonColor] = useState('MediumVioletRed');
-  const [disabled, setDisabled] = useState(false);
+  // order Phase needs to be 'inProhress', 'review' or 'completed'
+  const [orderPhase, setOrderPhase] = useState('inProgress');
 
-  const newButtonColor =
-    buttonColor === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed';
-
+  let Component = OrderEntry;
+  switch (orderPhase) {
+    case 'inProgress':
+      Component = OrderEntry;
+      break;
+    case 'review':
+      Component = OrderSummary;
+      break;
+    case 'completed':
+      Component = OrderConfirmation;
+      break;
+    default:
+  }
   return (
-    <div>
-      <button
-        style={{ backgroundColor: disabled ? 'gray' : buttonColor }}
-        onClick={() => setButtonColor(newButtonColor)}
-        disabled={disabled}
-      >
-        Change to {newButtonColor}
-      </button>
-      <input
-        type='checkbox'
-        id='disable-button-checkbox'
-        defaultChecked={disabled}
-        aria-checked={disabled}
-        onClick={(e) => setDisabled(e.target.checked)}
-      />
-      <label htmlFor='disable-button-checkbox'>Disable button</label>
-    </div>
+    <OrderDetailsProvider>
+      <Container>{<Component setOrderPhase={setOrderPhase} />}</Container>
+    </OrderDetailsProvider>
   );
 }
 
