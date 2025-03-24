@@ -1,10 +1,34 @@
+import { useState } from 'react';
 import './App.css';
-import Login from './components/login/Login';
+
+export function replaceCameWithSpaces(colorName) {
+  return colorName.replace(/\B([A-Z])\B/g, ' $1');
+}
 
 function App() {
+  const [buttonColor, setButtonColor] = useState('MediumVioletRed');
+  const [disabled, setDisabled] = useState(false);
+
+  const newButtonColor =
+    buttonColor === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed';
+
   return (
-    <div className="App">
-      <Login/>
+    <div>
+      <button
+        style={{ backgroundColor: disabled ? 'gray' : buttonColor }}
+        onClick={() => setButtonColor(newButtonColor)}
+        disabled={disabled}
+      >
+        Change to {newButtonColor}
+      </button>
+      <input
+        type='checkbox'
+        id='disable-button-checkbox'
+        defaultChecked={disabled}
+        aria-checked={disabled}
+        onClick={(e) => setDisabled(e.target.checked)}
+      />
+      <label htmlFor='disable-button-checkbox'>Disable button</label>
     </div>
   );
 }

@@ -1,15 +1,21 @@
-# Getting Started with Create React App
+# Getting Started with React Testing Library
 
-This project is made for learning how to use the React Testing Library
+This project has been created for me to learn more about the react testing library using the udemy course
+https://www.udemy.com/course/react-testing-library/
+
+## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `yarn test`
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
